@@ -34,7 +34,7 @@ namespace Application.Services
             _bookDal.AddList(books);
             return new SuccessResult(Messages.BooksAdded);
         }
-        
+        [CacheRemoveAspect("IBookService")]
         public async Task<IResult> SetBookImage(UpdateBookImageDTO updateBookImageDTO)
         {
             var updatedImageBook = _bookDal.Get(b => b.Id == updateBookImageDTO.BookId);

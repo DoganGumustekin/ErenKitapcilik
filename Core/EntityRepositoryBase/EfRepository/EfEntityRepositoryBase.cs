@@ -102,7 +102,7 @@ namespace Core.EntityRepositoryBase.EfRepository
 
         public async Task<List<TEntity>> Search(string term, string[] arguments ,int result)
         {
-            if (string.IsNullOrWhiteSpace(term) || term.Length <= 3)
+            if (string.IsNullOrWhiteSpace(term) || term.Length < 3)
             {
                 return new List<TEntity>();
             }
