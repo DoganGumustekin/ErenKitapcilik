@@ -27,7 +27,7 @@ namespace Application.Services
             _mapper = mapper;
         }
 
-        //[ClaimOperation("admin")]
+        [ClaimOperation("admin")]
         [CacheRemoveAspect("IBookService")]
         public async Task<IResult> AddBookList(List<Book> books)
         {
@@ -51,7 +51,7 @@ namespace Application.Services
         }
 
 
-        //[ClaimOperation("admin")]
+        [ClaimOperation("admin")]
         [CacheRemoveAspect("IBookService")]
         public IResult Update(BookUpdateDTO bookUpdateDTO)
         {
@@ -67,7 +67,7 @@ namespace Application.Services
             return new SuccessResult(Messages.BookUpdated);
         }
 
-        //[ClaimOperation("admin")]
+        [ClaimOperation("admin")]
         [CacheRemoveAspect("IBookService")]
         public IResult Delete(int id)
         {
