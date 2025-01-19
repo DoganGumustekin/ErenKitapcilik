@@ -11,7 +11,7 @@ using Core.Utilities.Security.Hashing;
 namespace Infrastructure.DBContext
 {
     public class DBConnection : DbContext
-    {
+    {  
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ErenKitapcilik;Trusted_Connection=true;TrustServerCertificate=true");

@@ -11,6 +11,7 @@ using Autofac;
 using Business.DependencyResolvers;
 using Application.AutoMapperConfiguration;
 using Microsoft.Extensions.FileProviders;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +21,13 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterMod
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddSerilog(i =>
+{
+    i.ReadFrom.Configuration(builder.Configuration.GetSection(""));
+    i.WriteTo.File("");
+    i.MinimumLevel.Error();
+});
 
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
